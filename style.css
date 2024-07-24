@@ -1,0 +1,278 @@
+
+/* CSS RESET */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin: 0;
+}
+
+/* Remove default list styles */
+:is(ul, ol) {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+a {
+  display: inline-block;
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+  text-decoration: none;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+
+/* FONTS */
+
+@font-face {
+    font-family: 'Anton';
+    src: url('assets/fonts/Anton-Regular.woff2') format("woff2");
+    font-weight: 400;
+}
+
+
+/* CUSTOM PROPERTIES */
+
+:root {
+    /* COLORS */
+
+    --clr-secondary: #000000;
+    --clr-primary: #fff;
+    --clr-blue-100: #227abd;
+    --clr-blue-200: #248be0;
+    --clr-blue-300: #074b78;
+    --clr-accent: #f39200;
+
+    /* TYPOGRAPHY */
+
+    --ff-primary: 'Anton', sans-serif;
+}
+
+
+/* UTILITIES */
+
+.lowercase {
+    text-transform: lowercase;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.fs-large {
+    font-size: 1.5rem;
+}
+
+.fs-extra-large {
+    font-size: 2rem;
+}
+
+.accent {
+    color: var(--clr-accent);
+}
+
+.flow {
+    --flow-space: 5rem;
+}
+
+.flow > * + * {
+    margin-block-start: var(--flow-space);
+}
+
+
+/* GENERAL STYLING */
+
+body {
+    padding: 1rem;
+    background-color: var(--clr-secondary);
+    color: var(--clr-primary);
+    font-family: var(--ff-primary);
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding-block: 2rem;
+    padding-inline: 1rem;
+
+    @media (width > 50rem) {
+        padding-inline: 8rem;
+    }
+}
+
+.navbar__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    color: var(--clr-blue-100);
+
+    @media (width > 50rem) {
+        flex-direction: row;
+        gap: 2.5rem;
+    }
+}
+
+.navbar__link:is(:hover, :focus-visible) {
+    color: var(--clr-blue-200);
+}
+
+.main {
+    padding-block: 4rem;
+    padding-inline: 2rem;
+
+    @media (width > 50rem) {
+        padding-inline: 8rem;
+    }
+}
+
+.more-to-come {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+
+    @media (width > 50rem) {
+        flex-direction: row;
+        gap: 1rem;
+    }
+}
+
+.buy {
+    background-color: var(--clr-accent);
+    color: var(--clr-secondary);
+    padding: .5em 2em;
+    border-radius: 20px;
+    transition: all .25s;
+    font-size: 1.25rem;
+
+    &:is(:hover, :focus-visible) {
+        background-color: var(--clr-primary);
+        color: var(--clr-blue-300);
+    }
+}
+
+.detailed {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.days {
+    --flow-space: 3rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+
+    @media (width > 50rem) {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
+    }
+}
+
+.day {
+    --flow-space: 1rem;
+}
+
+.artists {
+    line-height: 1.75;
+    font-size: 1.25rem;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    padding-block: 4rem;
+    padding-inline: 1rem;
+
+    @media (width > 50rem) {
+        padding-inline: 8rem;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.section-1 {
+    --flow-space: .5rem;
+
+    @media (width > 50rem) {
+        --flow-space: 1rem;
+    }
+}
+
+.section-2 {
+    --flow-space: .5rem;
+
+    @media (width > 50rem) {
+        --flow-space: 1rem;
+    }
+}
+
+.social-media__links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    @media (width > 50rem) {
+        justify-content: flex-start;
+    }
+}
